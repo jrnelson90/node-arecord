@@ -15,7 +15,7 @@ class Arecord extends require(`events`).EventEmitter {
 		super();
 
 		this.options = Object.assign({
-			program: `arecord`,	                // Which program to use, `arecord`.
+			program: `arecord`,	        // Which program to use, `arecord`.
 			device: null,				// Recording device to use.
 			channels: 2,				// Channel count.
 			format: `S16_LE`,			// Format type.
