@@ -1,28 +1,25 @@
 {
   "author": {
-    "name": "Ron Dekker",
-    "url": "https://rondekker.nl"
+    "name": "Justin Nelson",
   },
-  "name": "node-audiorecorder",
-  "version": "1.4.1",
-  "description": "Record audio via node using a SOX or Arecord.",
+  "name": "node-arecord",
+  "version": "0.0.1",
+  "description": "Record audio via node using Arecord.",
   "license": "MIT",
   "keywords": [
     "audio",
     "recording",
-    "sox",
-    "rec",
     "arecord",
     "wav",
     "wave"
   ],
-  "homepage": "https://github.com/RedKenrok/node-audiorecorder#readme",
+  "homepage": "https://github.com/jrnelson90/node-arecord#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RedKenrok/node-audiorecorder.git"
+    "url": "git+https://github.com/jrnelson90/node-arecord.git"
   },
   "bugs": {
-    "url": "https://github.com/RedKenrok/node-audiorecorder/issues"
+    "url": "https://github.com/jrnelson90/node-arecord/issues"
   },
   "main": "library/index.js",
   "files": [
