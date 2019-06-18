@@ -1,4 +1,4 @@
-# Audio recorder
+# Arecord For Node
 Audio recorder for [Node.js](https://nodejs.org/), Based of [Gilles De Mey](https://github.com/gillesdemey)'s [node-record-lpcm16](https://github.com/gillesdemey/node-record-lpcm16).
 
 ## Installation
