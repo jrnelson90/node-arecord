@@ -1,15 +1,20 @@
 // Imports modules.
 const fs = require(`fs`),
 	path = require(`path`);
-const AudioRecorder = require(`../library`);
+const Arecord = require(`../library`);
 // Constants.
 const DIRECTORY = `examples-recordings`;
 
 // Initialize recorder and file stream.
-const audioRecorder = new AudioRecorder({
-	program: process.platform === `win32` ? `sox` : `rec`,
-	silence: 0
-}, console);
+const options = {
+  program: `arecord`,     // Which program to use,`arecord`.
+  device: null,       // Recording device to use.
+  channels: 2,        // Channel count.
+  format: `S16_LE`,   // Encoding type. (only for `arecord`)
+  rate: 48000,        // Sample rate.
+  type: `wav`,        // Format type.
+};
+const audioRecorder = new Arecord(options, console);
 
 // Create path to write recordings to.
 if (!fs.existsSync(DIRECTORY)){
