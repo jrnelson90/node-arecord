@@ -1,7 +1,5 @@
 {
-  "author": {
-    "name": "Justin Nelson",
-  },
+  "author": "Justin Nelson",
   "name": "node-arecord",
   "version": "0.0.1",
   "description": "Record audio via node using Arecord.",
