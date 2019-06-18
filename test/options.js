@@ -1,97 +1,25 @@
 // Dependency modules.
 const test = require(`ava`);
 // Custom module.
-const AudioRecorder = require(`../library`);
+const Arecord = require(`../library`);
 
 // Default arecord options.
 test(`arecord`, function(t) {
-	const audioRecorder = new AudioRecorder({
+	const audioRecorder = new Arecord({
 		program: `arecord`
 	});
 	t.deepEqual(audioRecorder.options.program, `arecord`);
 	t.deepEqual(audioRecorder.command.arguments, [
 		`-q`,
 		`-c`,
-		`1`,
+		`2`,
 		`-r`,
-		`16000`,
+		`48000`,
 		`-t`,
 		`wav`,
 		`-f`,
 		`S16_LE`
 	]);
-	t.deepEqual(audioRecorder.command.options, {
-		encoding: `binary`
-	});
-});
-
-// Default options (rec).
-test(`default`, function(t) {
-	const audioRecorder = new AudioRecorder();
-	t.deepEqual(audioRecorder.options.program, `rec`);
-	t.deepEqual(audioRecorder.command.arguments, [
-		`-q`,
-		`-c`,
-		`1`,
-		`-r`,
-		`16000`,
-		`-t`,
-		`wav`,
-		`-V0`,
-		`-L`,
-		`-b`,
-		`16`,
-		`-e`,
-		`signed-integer`,
-		`-`,
-		`silence`,
-		`-l`,
-		`1`,
-		`0.1`,
-		`0.5%`,
-		`1`,
-		`2.0`,
-		`0.5%`
-	]);
-	t.deepEqual(audioRecorder.command.options, {
-		encoding: `binary`
-	});
-});
-
-// Default sox options.
-test(`sox`, function(t) {
-	const audioRecorder = new AudioRecorder({
-		program: `sox`
-	});
-	t.deepEqual(audioRecorder.options.program, `sox`);
-	const expectedArguments = [
-		`-q`,
-		`-c`,
-		`1`,
-		`-r`,
-		`16000`,
-		`-t`,
-		`wav`,
-		`-V0`,
-		`-L`,
-		`-b`,
-		`16`,
-		`-e`,
-		`signed-integer`,
-		`-`,
-		`silence`,
-		`-l`,
-		`1`,
-		`0.1`,
-		`0.5%`,
-		`1`,
-		`2.0`,
-		`0.5%`
-	];
-	if (process.platform === `win32`) {
-		expectedArguments.unshift(`-d`);
-	}
-	t.deepEqual(audioRecorder.command.arguments, expectedArguments);
 	t.deepEqual(audioRecorder.command.options, {
 		encoding: `binary`
 	});
