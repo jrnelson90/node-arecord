@@ -5,10 +5,6 @@ Audio recorder for [Node.js](https://nodejs.org/), Based of [RedKenrok](https://
 ```
 npm install --save node-arecord
 ```
-### For Linux
-```
-sudo apt-get install sox libsox-fmt-all
-```
 ## Usage
 
 ### Constructor
