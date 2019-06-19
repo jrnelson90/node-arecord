@@ -15,7 +15,6 @@ class Arecord extends require(`events`).EventEmitter {
 		super();
 
 		this.options = Object.assign({
-			program: `arecord`,	                // Which program to use, `arecord`.
 			device: null,				// Recording device to use.
 			channels: 2,				// Channel count.
 			format: `S16_LE`,			// Format type.
@@ -33,29 +32,23 @@ class Arecord extends require(`events`).EventEmitter {
 				`-c`, this.options.channels.toString(),
 				// Sample rate
 				`-r`, this.options.rate.toString(),
-				// Format type
-				`-t`, this.options.type
+				// Output File type
+				`-t`, this.options.type,
+				// Input Format type
+				`-f`, this.options.format
 			],
 			options: {
 				encoding: `binary`
 			}
 		};
-		switch (this.options.program) {
-			default:
-			case `arecord`:
-				if (this.options.device) {
-					this.command.arguments.unshift(`-D`, this.options.device);
-				}
-				this.command.arguments.push(
-					// Format type
-					`-f`, this.options.format
-				);
-				break;
+
+		if (this.options.device) {
+			this.command.arguments.unshift(`-D`, this.options.device);
 		}
 
 		if (this.logger) {
 			// Log command.
-			this.logger.log(`node-arecord: Command '${this.options.program} ${this.command.arguments.join(` `)}'`);
+			this.logger.log(`node-arecord: Command 'arecord ${this.command.arguments.join(` `)}'`);
 		}
 
 		return this;
@@ -73,7 +66,7 @@ class Arecord extends require(`events`).EventEmitter {
 		}
 
 		// Create new child process and give the recording commands.
-		childProcess = processSpawn(this.options.program, this.command.arguments, this.command.options);
+		childProcess = processSpawn("arecord", this.command.arguments, this.command.options);
 
 		// Store this in `self` so it can be accessed in the callback.
 		let self = this;
