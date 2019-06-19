@@ -15,7 +15,6 @@ const Arecord = require('node-arecord');
 // Options is an optional parameter for the constructor call.
 // If an option is not given the default value, as seen below, will be used.
 const options = {
-  program: `arecord`,     // Which program to use,`arecord`.
   device: null,       // Recording device to use.
   channels: 2,        // Channel count.
   format: `S16_LE`,   // Encoding type. (only for `arecord`)
